@@ -44,4 +44,22 @@ public class Separate0sand1s {
         arr[i] = arr[j];
         arr[j] = temp;
     }
+
+    public static void separated0sAnd1sAleternate (int[] arr) {
+        int i = 0;
+        int j = arr.length - 1;
+        while (i < j) {
+            while (arr[i] == 0 && i < j) {
+                i++;
+            }
+            while (arr[j] == 1 && j > i) {
+                j--;
+            }
+            if( i < j ){
+                arr[i++] = 0;
+                arr[j--] = 1;
+            }
+        }
+        System.out.println(arr);
+    }
 }
