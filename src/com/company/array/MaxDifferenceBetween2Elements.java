@@ -19,6 +19,7 @@ Approach -1
   return current_diff
 
   https://leetcode.com/problems/maximum-difference-between-increasing-elements/
+  This is same problem as Stock Buy and Sell Problem in Striver sheet
 */
 public class MaxDifferenceBetween2Elements {
     public static void main(String[] args) {
@@ -33,12 +34,11 @@ public class MaxDifferenceBetween2Elements {
     }
 
     public static int getMaxDifference(int[] arr) {
-        int size = arr.length;
-        int min_elem_so_far = arr[0];
-        int max_diff_so_far = arr[1] - arr[0];
-        int curr_diff = arr[1] - arr[0];
+        int min_elem_so_far = Integer.MAX_VALUE;
+        int max_diff_so_far = 0;
+        int curr_diff;
 
-        for(int i = 1; i<size; i++) {
+        for(int i = 0; i<arr.length; i++) {
             if(arr[i] < min_elem_so_far) {
                 min_elem_so_far = arr[i];
             } else {

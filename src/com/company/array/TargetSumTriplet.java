@@ -16,7 +16,7 @@ public class TargetSumTriplet {
             arr[i] = sc.nextInt();
         }
       int givenSum = sc.nextInt();
-      System.out.println(threeSum(arr, givenSum));
+      threeSumAlternative(arr, givenSum);
     }
 
     public static List<List<Integer>> twoSum(int[] arr, int si, int ei, int target) {
@@ -68,5 +68,27 @@ public class TargetSumTriplet {
             }
         }
         return res;
+    }
+
+    public static int threeSumAlternative(int[] arr, int sum) {
+        int n = arr.length - 1;
+        Arrays.sort(arr);
+        for (int i = 0; i < n-2; i++) {
+            int li = i+1;
+            int ri = n-1;
+            while(li < ri) {
+                int tripletSum = arr[i] + arr[li] + arr[ri];
+                if(tripletSum == sum) {
+                    System.out.println("Triplet present in the array are: " + arr[i] + " " + arr[li]+ " "+ arr[ri]);
+                    return 1;
+                }
+                if(tripletSum < sum) {
+                    li++;
+                } else {
+                    ri--;
+                }
+            }
+        }
+        return 0;
     }
 }
